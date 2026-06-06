@@ -19,7 +19,15 @@ Cuttle-Droid/
 ```
 
 ## Hardwatre Requirements
-### Software Requirements
+ - ESP32C3
+ - Motor drivers and actuators
+ - loadcell force sensor
+ - hotspot or wifi access
+
+## Software Requirements
+- [Arduino IDE](https://www.arduino.cc/en/software)
+- Python
+
 
 ## Design Files
 
