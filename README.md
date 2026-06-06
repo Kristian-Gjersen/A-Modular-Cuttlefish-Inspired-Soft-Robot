@@ -6,7 +6,7 @@ This repository contains the control code, setup code, 3D STL files and further 
 ## Repository Structure
 
 ```
-Daul-Actuator-Wave-Like-Navigator/
+Cuttle-Droid/
 │
 ├── design-files/                   # Mechanical design files
 │   ├── mold /                      # STL files for casting fin and PFD files for assembly
