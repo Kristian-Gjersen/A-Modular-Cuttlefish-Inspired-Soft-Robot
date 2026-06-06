@@ -5,6 +5,18 @@ This repository contains the control code, setup code, 3D STL files and further 
 
 ## Repository Structure
 
+```
+Daul-Actuator-Wave-Like-Navigator/
+│
+├── design-files/                   # Mechanical design files
+│   ├── mold /                      # STL files for casting fin and PFD files for assembly
+│   └── robot/                      # STL and PDF files for assembly
+│
+└── robot-control-code/              # Arduino code for the main robot controller and pyhon code for remote control
+    ├── main.ino                     # Main controller logic For the robot
+    ├── controller.py                # Remote controller script for manual steering
+    └── Force_Test.py                # Python code for remotely controlling the force tests.
+```
 
 ## Hardwatre Requirements
 ### Software Requirements
