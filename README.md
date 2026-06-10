@@ -12,7 +12,7 @@ Cuttle-Droid/
 │   ├── mold /                      # STL files for casting fin and PFD files for assembly
 │   └── robot/                      # STL and PDF files for assembly
 │
-└── robot-control-code/              # Arduino code for the main robot controller and pyhon code for remote control
+└── Robot-Control-Code/              # Arduino code for the main robot controller and pyhon code for remote control
     ├── RobotControlCode.ino         # Main controller logic For the robot
     ├── RobotRemoteController.py     # Remote controller script for manual steering
     └── Force_Test.py                # Python code for remotely controlling the force tests.
