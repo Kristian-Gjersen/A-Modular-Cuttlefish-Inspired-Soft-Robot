@@ -19,16 +19,16 @@ A-Modular-Cuttlefish-Inspired-Soft-Robot/
     └── Force_Test.py                # Python code for remotely controlling the force tests.
 ```
 
-## Hardwatre Requirements
- - ESP32C3
+## Hardware Requirements
+ - ESP32C3 microcontroller
  - Motor drivers and actuators
  - loadcell force sensor
  - hotspot or wifi access
 
 ## Software Requirements
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Python
-
+- Python With Packages:
+    - `matplotlib`, `serial`, `keyboard`, `csv`, `time`, `socket`, `numpy`, `os`, `nidaqmx`
 
 ## Design Files
 
