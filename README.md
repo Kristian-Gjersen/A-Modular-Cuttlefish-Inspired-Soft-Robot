@@ -9,7 +9,7 @@ This repository contains the control code, setup code, 3D STL files and further 
 Cuttle-Droid/
 │
 ├── Design-Files/                    # Mechanical design files
-│   ├── Mold/                       # STL files for casting fin
+│   ├── Mold/                        # STL files for casting fin
 │   └── Robot/                       # STL files for the robot
 │       └──Assembly-Guide/           # PDF guide on robot assembly
 └── Robot-Control-Code/              # Arduino code for the main robot controller and pyhon code for remote control
