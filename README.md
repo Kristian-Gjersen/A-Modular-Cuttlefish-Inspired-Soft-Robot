@@ -13,8 +13,8 @@ Cuttle-Droid/
 │   └── robot/                      # STL and PDF files for assembly
 │
 └── robot-control-code/              # Arduino code for the main robot controller and pyhon code for remote control
-    ├── main.ino                     # Main controller logic For the robot
-    ├── controller.py                # Remote controller script for manual steering
+    ├── RobotControlCode.ino         # Main controller logic For the robot
+    ├── RobotRemoteController.py     # Remote controller script for manual steering
     └── Force_Test.py                # Python code for remotely controlling the force tests.
 ```
 
