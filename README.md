@@ -6,7 +6,7 @@ This repository contains the control code, setup code, 3D STL files and further 
 ## Repository Structure
 
 ```
-Cuttle-Droid/
+A-Modular-Cuttlefish-Inspired-Soft-Robot/
 │
 ├── Design-Files/                    # Mechanical design files
 │   ├── Mold/                        # STL files for casting fin
