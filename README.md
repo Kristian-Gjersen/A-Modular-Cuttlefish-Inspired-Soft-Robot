@@ -27,7 +27,7 @@ A-Modular-Cuttlefish-Inspired-Soft-Robot/
 
 ## Software Requirements
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Python With Packages:
+- Python 3.11+ with packages:
     - `matplotlib`, `serial`, `keyboard`, `csv`, `time`, `socket`, `numpy`, `os`, `nidaqmx`
 
 ## Design Files
