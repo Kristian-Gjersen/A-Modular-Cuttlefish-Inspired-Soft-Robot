@@ -40,8 +40,8 @@ A-Modular-Cuttlefish-Inspired-Soft-Robot/
 - STL files for Mold for fin casting found in `Design-Files/Mold`
 
 ## Code files
-- `RobotControlCode.ino` contains the code that runs the robot. This code automatically start connecting to the provided hotspot and awaits requests for actuator inputs.
-- `RobotRemoteController.py` contains the controller code for the laptop. This code will start searching for ESP32 on the hotspot and once connected it will allow for sending inputs to control the actuators on the robot. The controls works as follows:
+- `RobotControlCode.ino` contains the code uploaded to the robot. This code automatically start connecting to the provided hotspot and awaits requests for actuator inputs.
+- `RobotRemoteController.py` contains the controller code for the controlling laptop. This code will start searching for ESP32 on the hotspot and once connected it will allow for sending inputs to control the actuators on the robot. Always turn on the robot before starting this script. The controls works as follows:
 ```
 W = speed up forward
 S = slow down
@@ -50,4 +50,4 @@ Q/E = servo steering left and right
 Z/C = differential turn left and right
 SPACE = stop
 ```
-- `Force_Test.py` contains the script used for doing force test readings on the robot. It sets up the ESP32, Daq, and Arduino to automatically perform the test that is selected. It will handle timing and duty cycle inputs to the robot.
+- `Force_Test.py` contains the script used for doing force test readings on the robot. It sets up the ESP32, Daq, and Arduino to automatically perform the test that is selected. It will handle timing and duty cycle inputs to the robot. Always have the robot turned on before performing force test.
