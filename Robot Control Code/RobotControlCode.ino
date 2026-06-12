@@ -6,8 +6,8 @@
 // ----
 // Setup a costum hotspot and provide ssid and password
 // Make sure that the laptop is connected to the same hotspot
-const char* ssid = "CuttlefishBot";
-const char* password = "Ostesovs";
+const char* ssid = "WiFi-SSID";
+const char* password = "WiFi-Password";
 
 WiFiServer server(80);
 
