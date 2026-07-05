@@ -23,11 +23,11 @@ WiFiServer server(80);
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);
 
 // Servo settings
-#define SERVOMIN  150
-#define SERVOMAX  600
-#define SERVO_CHANNEL 0
-#define SERVO_FREQ 50
-#define SERVO_CENTER_ANGLE 90
+#define SERVOMIN  800
+#define SERVOMAX  2200
+#define SERVO_CHANNEL 12
+#define SERVO_FREQ 240
+#define SERVO_CENTER_ANGLE 50
 
 int currentSpeed = 0;
 const int maxSpeed = 150;
@@ -201,6 +201,6 @@ void stopMotors() {
 
 void setSteeringOffset(int offset) {
   int angle = constrain(SERVO_CENTER_ANGLE + offset, 0, 180);
-  int pulse = map(angle, 0, 180, SERVOMIN, SERVOMAX);
+  int pulse = map(angle, 0, 100, SERVOMIN, SERVOMAX);
   pwm.setPWM(SERVO_CHANNEL, 0, pulse);
 }
