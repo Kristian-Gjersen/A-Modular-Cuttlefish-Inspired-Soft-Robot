@@ -73,7 +73,7 @@ print("Controls:")
 print("  W = speed up forward")
 print("  S = slow down")
 print("  A/D = soft turn by turning off one drive motor")
-print("  Q/E = servo steering -50/+50 degrees")
+print("  Q/E = servo steering -15/+15 degrees")
 print("  Z/C = differential turn")
 print("  SPACE = stop")
 
