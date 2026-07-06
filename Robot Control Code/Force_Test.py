@@ -105,7 +105,7 @@ for freq in frequencies:
     print(f"\n=== Running: {freq} Hz")
 
     #Set motor duty cycle on ESP
-    send_esp(f"DRIVE:{freq}")
+    send_esp(f"DRIVE:{freq},0,0")
     time.sleep(2)
 
     #Flush Arduino buffer
@@ -127,7 +127,7 @@ for freq in frequencies:
 
         #Start DAQ
         task.start()
-        send_esp(f"DRIVE:{freq}")
+        send_esp(f"DRIVE:{freq},0,0")
         print("Sending to esp: " + freq)
         arduino.write(CMD_GO.encode())
 
