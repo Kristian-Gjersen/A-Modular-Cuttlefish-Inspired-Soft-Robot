@@ -10,7 +10,7 @@ LOG_FILE = "commandlog.csv"
 # Tuning values
 SPEED_STEP = 5       # How much W/S changes current speed per command tick
 SEND_INTERVAL = 0.05 # Seconds between commands
-SERVO_ANGLE = 50     # Servo offset sent to robot: -50, 0, or +50 degrees
+SERVO_ANGLE = 50     # Servo offset sent to robot: -15, 0, or +15 degrees
 
 # Drive mode values sent to the ESP:
 #   0  = both motors forward at currentSpeed

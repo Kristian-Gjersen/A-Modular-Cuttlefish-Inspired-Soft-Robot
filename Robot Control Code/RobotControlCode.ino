@@ -155,7 +155,7 @@ void driveMotorsByMode(int mode) {
       motor2Backward(currentSpeed);
       break;
 
-    default:
+    case 0:
       // Normal forward drive.
       motor1Forward(currentSpeed);
       motor2Forward(currentSpeed);
@@ -164,12 +164,12 @@ void driveMotorsByMode(int mode) {
 }
 
 void motor1Forward(int speed) {
-  digitalWrite(DIR1, HIGH);
+  digitalWrite(DIR1, LOW);
   analogWrite(PWM1, speed);
 }
 
 void motor1Backward(int speed) {
-  digitalWrite(DIR1, LOW);
+  digitalWrite(DIR1, HIGH);
   analogWrite(PWM1, speed);
 }
 
