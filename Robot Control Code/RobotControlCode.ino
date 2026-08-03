@@ -130,7 +130,7 @@ void updateOutputs() {
 // ---------------
 
 void driveMotorsByMode(int mode) {
- currentSpeed = map(currentSpeed, 0, 100, 0, 255);
+  currentSpeed = map(currentSpeed, 0, 100, 0, 255);
   switch (mode) {
     case -1:
       // Soft left: motor 1 off, motor 2 forward.
