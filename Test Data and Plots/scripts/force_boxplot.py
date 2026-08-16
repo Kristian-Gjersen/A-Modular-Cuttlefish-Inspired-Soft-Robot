@@ -20,6 +20,23 @@ FIN_COLORS = {
 
 TRIAL_FORCE_VALUE = "mean"
 
+LOAD_CELL_CAPACITY_LBF = 5.0
+LBF_TO_N = 4.4482216152605
+LOAD_CELL_CAPACITY_N = LOAD_CELL_CAPACITY_LBF * LBF_TO_N
+ZERO_VOLTAGE = 0.0
+FULL_SCALE_OUTPUT_V = 5.0
+DISTANCE_TO_SENSOR = 5.0
+DISTANCE_TO_ROBOT = 56.0
+
+
+def voltage_to_force(voltage):
+    return (
+        (voltage - ZERO_VOLTAGE)
+        / (FULL_SCALE_OUTPUT_V - ZERO_VOLTAGE)
+        * LOAD_CELL_CAPACITY_N
+        * (DISTANCE_TO_SENSOR / DISTANCE_TO_ROBOT)
+    )
+
 
 def parse_trial_name(path):
     match = re.match(r"^(Pink|Purple|Blue)_Fin_(50|75|100)_(\d+)\.csv$", path.name)
@@ -51,11 +68,17 @@ def load_trials(data_dir):
         if parsed is None:
             continue
 
-        if "force_N" not in pd.read_csv(path, nrows=0).columns:
-            raise ValueError(f"No force_N column found in {path.name}")
+        columns = pd.read_csv(path, nrows=0).columns
+        if "voltage" in columns:
+            df = pd.read_csv(path, usecols=["voltage"])
+            force_values = voltage_to_force(pd.to_numeric(df["voltage"], errors="coerce"))
+        elif "force_N" in columns:
+            df = pd.read_csv(path, usecols=["force_N"])
+            force_values = df["force_N"]
+        else:
+            raise ValueError(f"No voltage or force_N column found in {path.name}")
 
-        df = pd.read_csv(path, usecols=["force_N"])
-        force = trial_force(df["force_N"])
+        force = trial_force(force_values)
         if force is None:
             continue
 
