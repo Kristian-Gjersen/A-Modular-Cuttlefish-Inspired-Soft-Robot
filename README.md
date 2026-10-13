@@ -1,10 +1,8 @@
-# A-Modular-Cuttlefish-Inspired-Soft-Robot
+# A Modular Cuttlefish Inspired Soft Robot
 
 <div align="center">
   <img src="Design Files/fullfish.png" width="40%">
 </div>
-
-A-Modular-Cuttlefish-Inspired-Soft-Robot
 
 This repository contains the control code, setup code, 3D STL files and further supplementary used for the development of the **Cuttle-Droid** - a modular cuttlefish bio-inspired soft robot that mimics undulating wave-like motion for locomotion.
 
