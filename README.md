@@ -1,4 +1,4 @@
-# CUTTLE-DROID
+# A-Modular-Cuttlefish-Inspired-Soft-Robot
 
 <div align="center">
   <img src="Design Files/fullfish.png" width="40%">
