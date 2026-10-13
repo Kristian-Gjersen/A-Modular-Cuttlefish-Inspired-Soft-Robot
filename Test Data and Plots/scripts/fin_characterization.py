@@ -3,11 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import find_peaks, savgol_filter
 
-
-# ----------------------------
-# Settings
-# ----------------------------
-
 ARCHIVE_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ARCHIVE_ROOT / "CSV data"
 
@@ -27,15 +22,15 @@ def data_file(name):
 
     raise FileNotFoundError(f"Could not find data file named {name!r} under {DATA_DIR}")
 
-FIN = 2                 # Change this to Fin1, Fin2, etc.
+FIN = 2
 
 COLORS = ["Pink", "Purple", "Blue"]
 STATES = ["Wet", "Dry"]
 
-PLOT_MULTIPLIER = 2     # 1 = one duty cycle, 2 = twice as much, 3 = three times as much
+PLOT_MULTIPLIER = 2
 N_POINTS = 800
 MIN_CYCLE_SECONDS = 8
-CENTER_Y = False        # True = subtract mean Y from each curve
+CENTER_Y = False
 
 ALPHA = 0.02
 
@@ -69,11 +64,6 @@ PLOT_COLORS = {
     "Purple": "#7374b6",
     "Blue": "#37a1d9",
 }
-
-
-# ----------------------------
-# Functions
-# ----------------------------
 
 def read_fin_file(path):
     data = np.loadtxt(path, delimiter=",")
@@ -278,11 +268,6 @@ def vertically_align_to_reference(x_ref, y_ref, x_target_plot, y_target):
 
     return y_target_aligned
 
-
-# ----------------------------
-# Plotting style
-# ----------------------------
-
 plt.rcParams.update({
     "font.family": "serif",
     "font.serif": ["Times New Roman", "DejaVu Serif", "serif"],
@@ -295,11 +280,6 @@ plt.rcParams.update({
     "legend.title_fontsize": 20,
 })
 
-
-# ----------------------------
-# Plotting
-# ----------------------------
-
 fig, axes = plt.subplots(
     1,
     3,
@@ -311,10 +291,6 @@ fig, axes = plt.subplots(
 for ax, color in zip(axes, COLORS):
     ax.set_box_aspect(1)
 
-    # ----------------------------
-    # Get raw cycle information
-    # ----------------------------
-
     wet_time, wet_y_raw, wet_start, wet_end, wet_cycle_duration = get_cycle_info(
         "Wet",
         color
@@ -325,18 +301,10 @@ for ax, color in zip(axes, COLORS):
         color
     )
 
-    # ----------------------------
-    # Manual left/right shift of extraction window
-    # ----------------------------
-
     window_shift_percent = MANUAL_WINDOW_SHIFT_PERCENT.get(color, 0)
 
     wet_start = wet_start + (window_shift_percent / 100) * wet_cycle_duration
     dry_start = dry_start + (window_shift_percent / 100) * dry_cycle_duration
-
-    # ----------------------------
-    # Extract Wet curve
-    # ----------------------------
 
     x_wet, y_wet = extract_processed_window(
         wet_time,
@@ -346,10 +314,6 @@ for ax, color in zip(axes, COLORS):
         label=f"{color} Wet"
     )
 
-    # ----------------------------
-    # Initial Dry extraction for phase alignment
-    # ----------------------------
-
     x_dry_initial, y_dry_initial = extract_processed_window(
         dry_time,
         dry_y_raw,
@@ -358,10 +322,6 @@ for ax, color in zip(axes, COLORS):
         label=f"{color} Dry initial"
     )
 
-    # ----------------------------
-    # Find Dry phase shift
-    # ----------------------------
-
     dry_shift_percent = find_phase_shift_percent(
         y_wet,
         y_dry_initial
@@ -369,10 +329,6 @@ for ax, color in zip(axes, COLORS):
 
     dry_shift_seconds = (dry_shift_percent / 100) * dry_cycle_duration
     dry_start_shifted = dry_start + dry_shift_seconds
-
-    # ----------------------------
-    # Extract extra real Dry data so visual shifting does not cut it off
-    # ----------------------------
 
     dry_visual_shift = VISUAL_DRY_X_SHIFT_PERCENT.get(color, 0)
 
@@ -397,10 +353,6 @@ for ax, color in zip(axes, COLORS):
         x_dry_plot,
         y_dry
     )
-
-    # ----------------------------
-    # Plot curves
-    # ----------------------------
 
     ax.plot(
         x_wet,
@@ -444,11 +396,6 @@ for ax, color in zip(axes, COLORS):
     ax.set_xlim(0, PLOT_MULTIPLIER * 100)
     ax.margins(y=0.08)
 
-
-# ----------------------------
-# Axis labels and y-axis numbers
-# ----------------------------
-
 axes[0].set_ylabel("Displacement (cm)", labelpad=12)
 
 yticks = axes[0].get_yticks()
@@ -469,11 +416,6 @@ for ax in axes:
 
     ax.spines["left"].set_visible(True)
     ax.spines["left"].set_linewidth(1.3)
-
-
-# ----------------------------
-# Shared legend
-# ----------------------------
 
 handles, labels = axes[0].get_legend_handles_labels()
 
